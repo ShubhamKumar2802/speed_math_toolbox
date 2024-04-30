@@ -1,4 +1,5 @@
 import random
+import math
 
 class Toolkit:
     def rng(self, lower_limit, upper_limit): 
@@ -44,6 +45,50 @@ class MultiplicationToolkit(Toolkit):
     
     def fetch_even_spaced_numbers(self, lower_limit, upper_limit, spacing): 
         print('fetch_even_spaced_numbers: started')
+
+    def explain(self, num_a, num_b, ques_type):
+        explaination_string = ""
+        match ques_type:
+            case 'Consecutive': 
+                explaination_string = f'$ {num_a}^2 + {num_a} $'
+            
+            case 'Even-Spaced': 
+                mid_spacing = {(num_b - num_a)/2}
+                mid_num = num_a + mid_spacing
+                ans = {math.pow(mid_num, 2)} - {math.pow(mid_spacing, 2)}
+                explaination_string = '$\\begin{align}' + \
+                    f' = ({mid_num} - {mid_spacing})*({mid_num} + {mid_spacing}))' + \
+                    f' = ({mid_num}^2 - {mid_spacing}^2)' + \
+                    f' = ({math.pow(mid_num, 2)} - {math.pow(mid_spacing, 2)})' + \
+                    f' = {ans}' + \
+                    '\end{align}$'
+            
+            case 'Random': 
+                explaination_string = f'Just multiply bro :skull:'
+        
+        return explaination_string
+    
+    def ans(self, num_a, num_b):
+        return num_a * num_b
+
+
+class SquareRootToolkit(Toolkit): 
+
+    def fetch_random_num(self, lower_limit, upper_limit):
+        return self.rng(lower_limit, upper_limit)
+    
+    def ans(self, num):
+        return math.sqrt(num)
+    
+
+class CubeRootToolkit(Toolkit): 
+
+    def fetch_random_num(self, lower_limit, upper_limit):
+        return self.rng(lower_limit, upper_limit)
+    
+    def ans(self, num):
+        return math.cbrt(num)
+        
         
 
 # if __name__ == '__main__':
