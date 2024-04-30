@@ -45,6 +45,11 @@ class MultiplicationToolkit(Toolkit):
     
     def fetch_even_spaced_numbers(self, lower_limit, upper_limit, spacing): 
         print('fetch_even_spaced_numbers: started')
+        num_a = self.rng(lower_limit, upper_limit)
+        if num_a + spacing > upper_limit:
+            return (num_a - spacing, num_a)
+
+        return (num_a, num_a + spacing)
 
     def explain(self, num_a, num_b, ques_type):
         explaination_string = ""

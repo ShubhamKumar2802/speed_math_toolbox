@@ -3,6 +3,7 @@ import utils.toolkit as tlk
 import math
 
 st.header(':palm_tree: Cube Root')
+st.sidebar.header(':palm_tree: Cube Root')
 
 num_range = st.sidebar.slider(
     label='Range', 

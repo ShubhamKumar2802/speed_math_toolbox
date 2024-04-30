@@ -3,6 +3,7 @@ import utils.toolkit as tlk
 import math
 
 st.header(':seedling: Square Root')
+st.sidebar.header(':seedling: Square Root')
 
 num_range = st.sidebar.slider(
     label='Range', 
